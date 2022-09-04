@@ -1,0 +1,19 @@
+settings:
+    encoding: "utf-8"
+variables:
+    pj_value1: "value1"
+    pj_value2: "value2"
+    pj_val_group:
+        pj_value3: "value3"
+        pj_list: ["list1", "list2", "list3"]
+        pj_sub_group:
+            pj_value4: "value4"
+    pj_val_rep: "${pj_value1}"
+other_node1:
+    input_dir:
+        a_file: "${pj_value1}.txt"
+        b_file: "%{os_env}/${pj_value2}.txt"
+        c_file: "${pj_val_group.pj_value3}.txt"
+other_node2:
+    output_dir:
+        z_file: "./output.txt"
