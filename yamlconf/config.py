@@ -4,7 +4,8 @@ from typing import overload
 import yaml
 from . import const
 from . import utils
-from os.path import abspath
+from os import path
+import sys
 
 class Config:
     """config class
@@ -36,7 +37,15 @@ class Config:
     variables: dict
     nodes: dict
     def __init__(self, config_path: str = "./config.yml"):
-        self._path = abspath(config_path)
+        if config_path.startswith("./"):
+            p = path.abspath(config_path)
+            if path.exists(p):
+                self._path = p
+            else:
+                exe_path = path.dirname(path.abspath(sys.argv[0]))
+                self._path = f"{exe_path}/config.yml"
+        else:
+            self._path = path.abspath(config_path)
         with open(self._path) as f:
             self._raw = yaml.safe_load(f)
         self.variables = vals = utils.load_values(self._raw)
