@@ -1,6 +1,4 @@
 from distutils.command.config import config
-from os import stat
-from typing import overload
 import yaml
 from . import const
 from . import utils

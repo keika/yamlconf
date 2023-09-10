@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-    name='yamlconf',
+    name='yamlconf-kei',
     version='0.0.1',
     description='Reading settings written in yaml',
     author='keika',
@@ -11,9 +11,11 @@ setup(
     ],
     keywords='キーワード',
     install_requires=[
-        'PyYAML==6.0',
-        'pytest==7.1.3'
+        'PyYAML>=6.0',
+        'pytest>=7.1.3'
     ],
+    url='https://github.com/keika/yamlconf',
+    python_requires='>=3.9',
     py_modules=[
         'yamlconf/config',
         'yamlconf/const',
