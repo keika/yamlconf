@@ -14,8 +14,8 @@ variables:
             pj_value4: "value4"
 other_node1:
     input_dir:
-        a_file: "${pj1_value}.txt"
-        b_file: "%{os_env}/${pj2_value}.txt"
+        a_file: "${pj_value1}.txt"
+        b_file: "%{os_env}/${pj_value2}.txt"
         c_file: "${pj_val_group.pj_value3}.txt"
 ```
 
